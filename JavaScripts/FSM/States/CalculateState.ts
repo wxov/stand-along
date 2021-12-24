@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-24 15:04:08
- * @LastEditTime: 2021-12-24 15:56:32
+ * @LastEditTime: 2021-12-24 18:37:21
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \JavaScripts\FSM\States\CalculateState.ts
@@ -22,20 +22,20 @@ export class CalculateState implements IFSMState {
 	}
 	//进入状态
 	Enter(): void {
-		console.log("---[FSM Log]:: CalculateState Enter.")
+		console.log("---[FSM Log]:: CalculateState Enter.");
 		if (this._mFinishedGame) {
 			//胜利之后结算逻辑.
-			
-			console.log("---[FSM Log]:: 胜利.")
+			console.log("---[FSM Log]:: 胜利.");
+			return;
 		} else {
 			//失败之后结算逻辑.
-			console.log("---[FSM Log]:: 失败.")
+			console.log("---[FSM Log]:: 失败.");
 		}
 
 		//_mAutoGoWaitStateTime秒之后切换到等待状态.
 		setTimeout(() => {
 			//TODO::切换到等待状态.
-			FSMManager.Instance.ChangeState(WaitingState)
+			FSMManager.Instance.ChangeState(WaitingState);
 		}, this._mAutoGoWaitStateTime);
 	}
 

@@ -5,12 +5,14 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var MWCore = require('MWCore');
 var Events = require('Events');
 var GamePlay = require('GamePlay');
+var Type = require('Type');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var MWCore__default = /*#__PURE__*/_interopDefaultLegacy(MWCore);
 var Events__default = /*#__PURE__*/_interopDefaultLegacy(Events);
 var GamePlay__default = /*#__PURE__*/_interopDefaultLegacy(GamePlay);
+var Type__default = /*#__PURE__*/_interopDefaultLegacy(Type);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -79,6 +81,7 @@ let ClothTest = class ClothTest extends MWCore__default['default'].MWScript {
         let a = other;
         if (other == a) {
             Events__default['default'].DispatchLocal("GameEvents_CheckPoint", other);
+            Events__default['default'].DispatchLocal("GameEvents_OpentNext", other);
             a.ChatMessage = "chengong";
         }
     }
@@ -124,7 +127,7 @@ class FSMManager {
     */
     ChangeState(c, params) {
         //退出当前状态
-        if (this._mCurrentState) {
+        if (this._mCurrentState !== null) {
             this._mCurrentState.Exit();
             this._mCurrentState = null;
         }
@@ -170,7 +173,9 @@ class GamingState {
     */
     Enter() {
         this._mCurrentGamingTime = 0;
-        this._mCheckPointListener = Events__default['default'].AddLocalListener("GameEvents_CheckPoint", (player) => { this._mPlayerFinishGame = true; });
+        this._mCheckPointListener = Events__default['default'].AddLocalListener("GameEvents_CheckPoint", (player) => {
+            this._mPlayerFinishGame = true;
+        });
         console.log("---[FSM Log]:: GamingState Enter.");
     }
     /**
@@ -217,7 +222,7 @@ class WaitingState {
     Update(dt) {
         this._mCurrentWaitTime += dt;
         if (this._mCurrentWaitTime >= 10) {
-            //TODO:: 切换到游戏状态.
+            // 切换到游戏状态.
             FSMManager.Instance.ChangeState(GamingState);
         }
     }
@@ -250,6 +255,7 @@ class CalculateState {
         if (this._mFinishedGame) {
             //胜利之后结算逻辑.
             console.log("---[FSM Log]:: 胜利.");
+            return;
         }
         else {
             //失败之后结算逻辑.
@@ -293,7 +299,7 @@ var foreign7 = /*#__PURE__*/Object.freeze({
     'default': GameLogic$1
 });
 
-let MovementDriver$2 = class MovementDriver extends MWCore__default['default'].MWScript {
+let MovementDriver$4 = class MovementDriver extends MWCore__default['default'].MWScript {
     moveFirstDirection = 1;
     moveAxis = "x"; // "x" or "y" or "z"
     moveDistance = 100;
@@ -363,6 +369,78 @@ let MovementDriver$2 = class MovementDriver extends MWCore__default['default'].M
 };
 __decorate([
     MWCore__default['default'].MWProperty()
+], MovementDriver$4.prototype, "moveFirstDirection", void 0);
+__decorate([
+    MWCore__default['default'].MWProperty({ replicated: true })
+], MovementDriver$4.prototype, "moveAxis", void 0);
+__decorate([
+    MWCore__default['default'].MWProperty({ replicated: true })
+], MovementDriver$4.prototype, "moveDistance", void 0);
+__decorate([
+    MWCore__default['default'].MWProperty({ replicated: true })
+], MovementDriver$4.prototype, "moveSpeed", void 0);
+MovementDriver$4 = __decorate([
+    MWCore__default['default'].MWClass
+], MovementDriver$4);
+var MovementDriver$5 = MovementDriver$4;
+
+var foreign8 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    'default': MovementDriver$5
+});
+
+let MovementDriver$2 = class MovementDriver extends MWCore__default['default'].MWScript {
+    moveFirstDirection = 1;
+    moveAxis = "z"; // "x" or "y" or "z"
+    moveDistance = 100;
+    moveSpeed = 10;
+    _moveTimer = 0;
+    _moveTime = 0;
+    _direction = 0; // 1: min -> max, -1: max -> min
+    _max = 0;
+    _min = 0;
+    _from = 0;
+    _to = 0;
+    //监听的事件返回值, 用于断开连接.
+    _mCheckPointListener;
+    _mPlayerFinishGame;
+    OnLoad() {
+    }
+    OnPlay() {
+        this.bUseUpdate = true;
+        let location = this.gameObject.location;
+        this._max = location.z + this.moveDistance;
+        // this._min = location.z - this.moveDistance;
+        this._from = this._max;
+        this._direction = this.moveFirstDirection;
+        this._to = location.z;
+        this._moveTime = Math.abs(this._to - this._from) / this.moveSpeed;
+    }
+    OnUpdate(dt) {
+        if (!GamePlay__default['default'].IsServer())
+            return;
+        this._mCheckPointListener = Events__default['default'].AddLocalListener("GameEvents_OpentNext", (player) => {
+            this._mPlayerFinishGame = true;
+        });
+        if (this._mPlayerFinishGame) {
+            this._moveTimer += dt;
+            while (this._moveTimer >= this._moveTime) {
+                this._moveTimer -= this._moveTime;
+            }
+            if (this._from >= this._to) {
+                let location = this.gameObject.location;
+                location.z = this._lerpFloat(this._to, this._moveTimer / this._moveTime);
+                this.gameObject.location = location;
+            }
+        }
+    }
+    _lerpFloat(to, ratio) {
+        this._to = to + this.moveSpeed * ratio;
+        return this._to;
+    }
+};
+__decorate([
+    MWCore__default['default'].MWProperty()
 ], MovementDriver$2.prototype, "moveFirstDirection", void 0);
 __decorate([
     MWCore__default['default'].MWProperty({ replicated: true })
@@ -378,97 +456,53 @@ MovementDriver$2 = __decorate([
 ], MovementDriver$2);
 var MovementDriver$3 = MovementDriver$2;
 
-var foreign8 = /*#__PURE__*/Object.freeze({
+var foreign9 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     'default': MovementDriver$3
 });
 
 let MovementDriver = class MovementDriver extends MWCore__default['default'].MWScript {
-    moveFirstDirection = 1;
-    moveAxis = "x"; // "x" or "y" or "z"
-    moveDistance = 100;
-    moveSpeed = 10;
-    _moveTimer = 0;
-    _moveTime = 0;
-    _direction = 0; // 1: min -> max, -1: max -> min
-    _max = 0;
-    _min = 0;
-    _from = 0;
-    _to = 0;
+    _x = 0;
+    _y = 0;
+    _z = 0;
+    // private location = this.gameObject.location;
+    _mPlayerStartListener;
+    _mPlayerFinishGame = false;
     OnLoad() {
+        // this._x = this.location.x;
+        // this._y = this.location.y;
+        // this._z = this.location.z;
     }
     OnPlay() {
         this.bUseUpdate = true;
-        let location = this.gameObject.location;
-        if (this.moveAxis.match("y")) {
-            this._max = location.y + this.moveDistance;
-            this._min = location.y - this.moveDistance;
-            this._from = location.y;
-        }
-        else if (this.moveAxis.match("z")) {
-            this._max = location.z + this.moveDistance;
-            this._min = location.z - this.moveDistance;
-            this._from = location.z;
-        }
-        else {
-            this._max = location.x + this.moveDistance;
-            this._min = location.x - this.moveDistance;
-            this._from = location.x;
-        }
-        this._direction = this.moveFirstDirection;
-        this._to = this._direction > 0 ? this._max : this._min;
-        this._moveTime = Math.abs(this._to - this._from) / this.moveSpeed;
+        // let location = this.gameObject.location;
+        // this._x = location.x;
+        // this._y = location.y;
+        // this._z = location.z;
+        this._mPlayerStartListener = Events__default['default'].AddLocalListener("GameEvents_PlayerStart", (player) => { this._mPlayerFinishGame = true; });
+        console.log("---[FSM Log]:: GamingState Enter." + this._x + "," + this._y + "," + this._z);
     }
     OnUpdate(dt) {
+        // console.log("---[FSM Log]:: "+this._x + "," + this._y + "," + this._z);
         if (!GamePlay__default['default'].IsServer())
             return;
-        // this._moveTimer += dt;
-        // while (this._moveTimer >= this._moveTime) {
-        //     this._moveTimer -= this._moveTime;
-        //     this._direction = -this._direction;
-        //     if (this._direction < 0) {
-        //         this._from = this._max;
-        //         this._to = this._min;
-        //     }
-        //     else {
-        //         this._from = this._min;
-        //         this._to = this._max;
-        //     }
-        // }
-        // let location = this.gameObject.location;
-        // if (this.moveAxis.match("y")) {
-        //     location.y = this._lerpFloat(this._from, this._to, this._moveTimer / this._moveTime);
-        // }
-        // else if (this.moveAxis.match("z")) {
-        //     location.z = this._lerpFloat(this._from, this._to, this._moveTimer / this._moveTime);
-        // }
-        // else {
-        //     location.x = this._lerpFloat(this._from, this._to, this._moveTimer / this._moveTime);
-        // }
-        // this.gameObject.location = location;
+        if (this._mPlayerFinishGame) {
+            // location.y = this._y;
+            // location.z = this._z;
+            // location.x = this._x;
+            let location = new Type__default['default'].Vector(this._x, this._y, this._z);
+            this.gameObject.location = location;
+        }
     }
-    _lerpFloat(from, to, ratio) {
-        return from + (to - from) * ratio;
+    OnDestroy() {
     }
 };
-__decorate([
-    MWCore__default['default'].MWProperty()
-], MovementDriver.prototype, "moveFirstDirection", void 0);
-__decorate([
-    MWCore__default['default'].MWProperty({ replicated: true })
-], MovementDriver.prototype, "moveAxis", void 0);
-__decorate([
-    MWCore__default['default'].MWProperty({ replicated: true })
-], MovementDriver.prototype, "moveDistance", void 0);
-__decorate([
-    MWCore__default['default'].MWProperty({ replicated: true })
-], MovementDriver.prototype, "moveSpeed", void 0);
 MovementDriver = __decorate([
     MWCore__default['default'].MWClass
 ], MovementDriver);
 var MovementDriver$1 = MovementDriver;
 
-var foreign9 = /*#__PURE__*/Object.freeze({
+var foreign10 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     'default': MovementDriver$1
 });
@@ -479,25 +513,22 @@ let Prick = class Prick extends MWCore__default['default'].MWScript {
     OnPlay() {
         this._trigger = GamePlay__default['default'].GetBoxTrigger(this);
         this._trigger.OnEnter.Add(this.OnTriggerIn.bind(this));
-        this._trigger.OnLeave.Add(this.OnTriggerOut.bind(this));
+        // this._trigger.OnLeave.Add(this.OnTriggerOut.bind(this));
     }
     OnUpdate(dt) {
     }
     OnTriggerIn(hitGameObject) {
-        if (!GamePlay__default['default'].IsCharacter(hitGameObject)) {
-            return;
-        }
+        // if (!GamePlay.IsCharacter(hitGameObject)) {
+        //     return;
+        // }
         let character = hitGameObject;
-        console.log("Prick.OnTriggerIn: ", character.GetName());
-        character.ChatMessage = "疼 疼 疼";
-    }
-    OnTriggerOut(hitGameObject) {
-        if (!GamePlay__default['default'].IsCharacter(hitGameObject)) {
-            return;
+        if (hitGameObject == character) {
+            // Events.DispatchLocal("GameEvents_PlayerStart", hitGameObject)
+            // console.log("Prick.OnTriggerIn: ", character.GetName());
+            character.ChatMessage = "疼 疼 疼";
+            // character.Player.location = new Type.Vector(0,0,0);
+            // character.CameraSetting.SetCameraOffset();
         }
-        let character = hitGameObject;
-        console.log("Prick.OnTriggerOut: ", character.GetName());
-        character.ChatMessage = "不疼 不疼 不疼 ";
     }
 };
 Prick = __decorate([
@@ -505,7 +536,7 @@ Prick = __decorate([
 ], Prick);
 var Prick$1 = Prick;
 
-var foreign10 = /*#__PURE__*/Object.freeze({
+var foreign11 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     'default': Prick$1
 });
@@ -520,8 +551,9 @@ const MWModuleMap = {
     'JavaScripts/FSM/States/WaitingState': foreign6,
     'JavaScripts/GameLogic': foreign7,
     'JavaScripts/MovementDriver': foreign8,
-    'JavaScripts/PlayerStart': foreign9,
-    'JavaScripts/Prick': foreign10,
+    'JavaScripts/OpentNext': foreign9,
+    'JavaScripts/PlayerStart': foreign10,
+    'JavaScripts/Prick': foreign11,
 };
 
 exports.MWModuleMap = MWModuleMap;

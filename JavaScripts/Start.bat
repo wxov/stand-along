@@ -1,1 +1,1 @@
-start notepad "F:/MW_meta/resources/app/MW/Meta/WindowsNoEditor/MW/Saved/MetaWorld/Users/17381454179/Projects/stand-alone/JavaScripts/PlayerStart.ts"
+start notepad "F:/MW_meta/resources/app/MW/Meta/WindowsNoEditor/MW/Saved/MetaWorld/Users/17381454179/Projects/stand-alone/JavaScripts/OpentNext.ts"

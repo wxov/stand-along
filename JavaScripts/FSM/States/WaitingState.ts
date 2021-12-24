@@ -21,7 +21,7 @@ export class WaitingState implements IFSMState {
 	Update(dt: number): void {
 		this._mCurrentWaitTime += dt;
 		if (this._mCurrentWaitTime >= 10) {
-			//TODO:: 切换到游戏状态.
+			// 切换到游戏状态.
 			FSMManager.Instance.ChangeState(GamingState)
 		}
 	}

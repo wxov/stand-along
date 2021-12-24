@@ -7,8 +7,9 @@ import * as foreign5 from './JavaScripts/FSM/States/GamingState';
 import * as foreign6 from './JavaScripts/FSM/States/WaitingState';
 import * as foreign7 from './JavaScripts/GameLogic';
 import * as foreign8 from './JavaScripts/MovementDriver';
-import * as foreign9 from './JavaScripts/PlayerStart';
-import * as foreign10 from './JavaScripts/Prick';
+import * as foreign9 from './JavaScripts/OpentNext';
+import * as foreign10 from './JavaScripts/PlayerStart';
+import * as foreign11 from './JavaScripts/Prick';
 
 
 export const MWModuleMap = {
@@ -21,6 +22,7 @@ export const MWModuleMap = {
     'JavaScripts/FSM/States/WaitingState': foreign6, 
     'JavaScripts/GameLogic': foreign7, 
     'JavaScripts/MovementDriver': foreign8, 
-    'JavaScripts/PlayerStart': foreign9, 
-    'JavaScripts/Prick': foreign10, 
+    'JavaScripts/OpentNext': foreign9, 
+    'JavaScripts/PlayerStart': foreign10, 
+    'JavaScripts/Prick': foreign11, 
 };

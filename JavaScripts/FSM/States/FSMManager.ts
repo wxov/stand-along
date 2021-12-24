@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-12-24 15:04:08
+ * @LastEditTime: 2021-12-24 18:52:15
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \JavaScripts\FSM\States\FSMManager.ts
+ */
 import IFSMState from "../Interface/IFSMState";
 
 export class FSMManager {
@@ -28,7 +36,7 @@ export class FSMManager {
 	*/
 	public ChangeState(c: { new(arg: any): IFSMState }, params?: any): void {
 		//退出当前状态
-		if (this._mCurrentState) {
+		if (this._mCurrentState!==null) {
 			this._mCurrentState.Exit()
 			this._mCurrentState = null
 		}
