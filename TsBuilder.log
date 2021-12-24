@@ -1,0 +1,7 @@
+*********************************Begin Build*********************************
+
+[36m
+[1mbuild.ts[22m → [1mdist/game.js[22m...[39m
+Circular dependency: JavaScripts\FSM\States\CalculateState.ts -> JavaScripts\FSM\States\WaitingState.ts -> JavaScripts\FSM\States\GamingState.ts -> JavaScripts\FSM\States\CalculateState.ts
+[32mcreated [1mdist/game.js[22m in [1m1.6s[22m[39m
+*********************************End Build*********************************
