@@ -1,14 +1,11 @@
-{
+﻿{
 	"Version": "1",
 	"Guid": "0B4603D54022FD422B4A229258DF63BA",
 	"Name": "GameLogic.ts",
 	"Type": "JavaScript",
-	"Language":
-	{
-	},
 	"Icon": "",
 	"Size": 0,
-	"Url": "",
+	"URL": "",
 	"Sha1": "",
 	"SortId": 0,
 	"Timestamp": 0

@@ -1,14 +1,11 @@
-{
+﻿{
 	"Version": "1",
 	"Guid": "702DF3C24E159BCE1986D5B3F419AFC1",
 	"Name": "WaitingState.ts",
 	"Type": "JavaScript",
-	"Language":
-	{
-	},
 	"Icon": "",
 	"Size": 0,
-	"Url": "",
+	"URL": "",
 	"Sha1": "",
 	"SortId": 0,
 	"Timestamp": 0

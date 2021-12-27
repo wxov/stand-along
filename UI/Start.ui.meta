@@ -1,8 +1,8 @@
 ﻿{
 	"Version": "1",
-	"Guid": "711D1EB94924BB651243E5B6C761876B",
-	"Name": "CalculateState.ts",
-	"Type": "JavaScript",
+	"Guid": "FEB8051542E8B22E86BDD692455AAD8B",
+	"Name": "Start.ui",
+	"Type": "GameUI",
 	"Icon": "",
 	"Size": 0,
 	"URL": "",

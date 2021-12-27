@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-24 16:12:54
- * @LastEditTime: 2021-12-27 16:26:07
+ * @LastEditTime: 2021-12-27 18:20:52
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \JavaScripts\Prick.ts
@@ -21,7 +21,7 @@ class MushroomTrap extends MWCore.MWScript {
     @MWCore.MWProperty({ replicated: true })
     id: number = 0;
 
-    @MWCore.MWProperty({ replicated: true, displayName:"效果持续时间（毫秒）" })
+    @MWCore.MWProperty({ replicated: true, displayName: "效果持续时间（毫秒）" })
     effectTime: number = 5000;
 
     listeners: Events.EventListener[] = [];
@@ -29,7 +29,7 @@ class MushroomTrap extends MWCore.MWScript {
     timerHandler: number;
 
     @MWCore.MWProperty({ replicated: true })
-    ownerId: number;
+    ownerId: number = 0;
 
     trigger: GamePlay.BoxTrigger | GamePlay.SphereTrigger;
 
@@ -37,7 +37,8 @@ class MushroomTrap extends MWCore.MWScript {
     }
 
     OnPlay(): void {
-        this.timerHandler = setTimeout(() => {
+        // this.timerHandler = 
+        setTimeout(() => {
             for (const go of this.gameObject.GetChildren()) {
                 if (GamePlay.IsSphereTrigger(go)) {
                     this.trigger = GamePlay.GetSphereTrigger(go);
@@ -55,8 +56,8 @@ class MushroomTrap extends MWCore.MWScript {
                 this.listeners.push(Events.AddLocalListener("BubbleTrapTriggerIn", this.OnBubbleTrapTriggerIn.bind(this)));
                 this.listeners.push(Events.AddClientListener(EventsName.ReqUseTrap, this.OnReqUseTrap.bind(this)));
             }
-            clearTimeout(this.timerHandler);
-            this.timerHandler = 0;
+            // clearTimeout(this.timerHandler);
+            // this.timerHandler = 0;
         }, 3000);
     }
 
@@ -123,12 +124,13 @@ class MushroomTrap extends MWCore.MWScript {
         }
     }
 
-    // 获取触发
+    // 获取触发陷阱的玩家
     GetCharacterPlayer(character: GamePlay.Character): GamePlay.Player {
         let targetPlayer: GamePlay.Player;
         GamePlay.PlayerMgr.ForEach((player, playerId) => {
             if (player.Character == character) {
                 targetPlayer = player;
+                // return player;
             }
         });
         return targetPlayer;
@@ -151,14 +153,15 @@ class MushroomTrap extends MWCore.MWScript {
     // 执行陷阱效果
     OnNtfPlayerInTrap(...args): void {
         let character = args.length > 1 ? (args[0] as GamePlay.Player).Character : GamePlay.GetCurrentPlayer().Character;
-        if (character) {
+        if (character&&this.ownerId != this.GetCharacterPlayer(character).GetPlayerID()) {
             character.SetAnimationStance(GamePlay.AnimationStanceType.LayDown);
             character.CanMove = false;
-            this.timerHandler = setTimeout(() => {
+            // this.timerHandler = 
+            setTimeout(() => {
                 character.SetAnimationStance(GamePlay.AnimationStanceType.Empty);
                 character.CanMove = true;
-                clearTimeout(this.timerHandler);
-                this.timerHandler = 0;
+                // clearTimeout(this.timerHandler);
+                // this.timerHandler = 0;
             }, this.effectTime);
         }
     }

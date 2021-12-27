@@ -1,14 +1,11 @@
-{
+﻿{
 	"Version": "1",
 	"Guid": "3FC6A7734EFA0B2E6365CF9C07C2E8BC",
 	"Name": "GamingState.ts",
 	"Type": "JavaScript",
-	"Language":
-	{
-	},
 	"Icon": "",
 	"Size": 0,
-	"Url": "",
+	"URL": "",
 	"Sha1": "",
 	"SortId": 0,
 	"Timestamp": 0

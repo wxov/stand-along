@@ -1,0 +1,376 @@
+﻿{
+	"MWUIWidgetBase_2147481704":
+	{
+		"MWCanvas_2147481702DD1BED4841F332EA2D743A8F81BCBDBA":
+		{
+			"MWButton_21474817006CF981884E4EE7C2333B4D8E23F3F867":
+			{
+				"坐 标":
+				{
+					"Position":
+					{
+						"X": 500,
+						"Y": 720
+					},
+					"Size":
+					{
+						"X": 220,
+						"Y": 100
+					}
+				},
+				"角 度": 0,
+				"Z系数": 0,
+				"自动大小": false,
+				"对 齐":
+				{
+					"MWUIConstraintH": 0,
+					"MWUIConstraintV": 0
+				},
+				"自动布局边距":
+				{
+					"Left": 0,
+					"Top": 0,
+					"Right": 0,
+					"Bottom": 0
+				},
+				"名 字": "MWButton_1",
+				"ID": "AB6CFCB542EF3A4947BF9E985ED0A9D1",
+				"可用性": true,
+				"可见性": 0,
+				"焦点": true,
+				"文 本": "开始游戏",
+				"字 体":
+				{
+					"FontFamily": "Roboto",
+					"Typeface": "Regular",
+					"FontSize": 24,
+					"LetterSpacing": 0
+				},
+				"字体颜色":
+				{
+					"R": 0,
+					"G": 0,
+					"B": 0,
+					"A": 1
+				},
+				"普通图片":
+				{
+					"ImageSize":
+					{
+						"X": 32,
+						"Y": 32
+					},
+					"ImageColor":
+					{
+						"R": 1,
+						"G": 1,
+						"B": 1,
+						"A": 1
+					},
+					"DrawAs": 3,
+					"Margin":
+					{
+						"Left": 0,
+						"Top": 0,
+						"Right": 0,
+						"Bottom": 0
+					},
+					"FileGuid": ""
+				},
+				"是否有过度模式": false,
+				"按压图片":
+				{
+					"ImageSize":
+					{
+						"X": 32,
+						"Y": 32
+					},
+					"ImageColor":
+					{
+						"R": 1,
+						"G": 1,
+						"B": 1,
+						"A": 1
+					},
+					"DrawAs": 3,
+					"Margin":
+					{
+						"Left": 0,
+						"Top": 0,
+						"Right": 0,
+						"Bottom": 0
+					},
+					"FileGuid": ""
+				},
+				"禁用图片":
+				{
+					"ImageSize":
+					{
+						"X": 32,
+						"Y": 32
+					},
+					"ImageColor":
+					{
+						"R": 1,
+						"G": 1,
+						"B": 1,
+						"A": 1
+					},
+					"DrawAs": 3,
+					"Margin":
+					{
+						"Left": 0,
+						"Top": 0,
+						"Right": 0,
+						"Bottom": 0
+					},
+					"FileGuid": ""
+				},
+				"OnClicked":
+				{
+					"事件名称": "OnClicked",
+					"事件绑定": ""
+				},
+				"OnPressed":
+				{
+					"事件名称": "OnPressed",
+					"事件绑定": ""
+				},
+				"OnReleased":
+				{
+					"事件名称": "OnReleased",
+					"事件绑定": ""
+				},
+				"OnHovered":
+				{
+					"事件名称": "OnHovered",
+					"事件绑定": ""
+				},
+				"OnUnhovered":
+				{
+					"事件名称": "OnUnhovered",
+					"事件绑定": ""
+				}
+			},
+			"MWButton_2147481698E0C1B12F40B5E1E04ABC76B3680E16BB":
+			{
+				"坐 标":
+				{
+					"Position":
+					{
+						"X": 1200,
+						"Y": 720
+					},
+					"Size":
+					{
+						"X": 220,
+						"Y": 100
+					}
+				},
+				"角 度": 0,
+				"Z系数": 0,
+				"自动大小": false,
+				"对 齐":
+				{
+					"MWUIConstraintH": 0,
+					"MWUIConstraintV": 0
+				},
+				"自动布局边距":
+				{
+					"Left": 0,
+					"Top": 0,
+					"Right": 0,
+					"Bottom": 0
+				},
+				"名 字": "MWButton_2",
+				"ID": "5AC46CD7437E18E004A08EB85584EA31",
+				"可用性": true,
+				"可见性": 0,
+				"焦点": true,
+				"文 本": "退出游戏",
+				"字 体":
+				{
+					"FontFamily": "Roboto",
+					"Typeface": "Regular",
+					"FontSize": 24,
+					"LetterSpacing": 0
+				},
+				"字体颜色":
+				{
+					"R": 0,
+					"G": 0,
+					"B": 0,
+					"A": 1
+				},
+				"普通图片":
+				{
+					"ImageSize":
+					{
+						"X": 32,
+						"Y": 32
+					},
+					"ImageColor":
+					{
+						"R": 1,
+						"G": 1,
+						"B": 1,
+						"A": 1
+					},
+					"DrawAs": 3,
+					"Margin":
+					{
+						"Left": 0,
+						"Top": 0,
+						"Right": 0,
+						"Bottom": 0
+					},
+					"FileGuid": ""
+				},
+				"是否有过度模式": false,
+				"按压图片":
+				{
+					"ImageSize":
+					{
+						"X": 32,
+						"Y": 32
+					},
+					"ImageColor":
+					{
+						"R": 1,
+						"G": 1,
+						"B": 1,
+						"A": 1
+					},
+					"DrawAs": 3,
+					"Margin":
+					{
+						"Left": 0,
+						"Top": 0,
+						"Right": 0,
+						"Bottom": 0
+					},
+					"FileGuid": ""
+				},
+				"禁用图片":
+				{
+					"ImageSize":
+					{
+						"X": 32,
+						"Y": 32
+					},
+					"ImageColor":
+					{
+						"R": 1,
+						"G": 1,
+						"B": 1,
+						"A": 1
+					},
+					"DrawAs": 3,
+					"Margin":
+					{
+						"Left": 0,
+						"Top": 0,
+						"Right": 0,
+						"Bottom": 0
+					},
+					"FileGuid": ""
+				},
+				"OnClicked":
+				{
+					"事件名称": "OnClicked",
+					"事件绑定": ""
+				},
+				"OnPressed":
+				{
+					"事件名称": "OnPressed",
+					"事件绑定": ""
+				},
+				"OnReleased":
+				{
+					"事件名称": "OnReleased",
+					"事件绑定": ""
+				},
+				"OnHovered":
+				{
+					"事件名称": "OnHovered",
+					"事件绑定": ""
+				},
+				"OnUnhovered":
+				{
+					"事件名称": "OnUnhovered",
+					"事件绑定": ""
+				}
+			},
+			"坐 标":
+			{
+				"Position":
+				{
+					"X": 0,
+					"Y": 0
+				},
+				"Size":
+				{
+					"X": 1920,
+					"Y": 1080
+				}
+			},
+			"角 度": 0,
+			"Z系数": 0,
+			"自动大小": false,
+			"对 齐":
+			{
+				"MWUIConstraintH": 2,
+				"MWUIConstraintV": 2
+			},
+			"自动布局边距":
+			{
+				"Left": 0,
+				"Top": 0,
+				"Right": 0,
+				"Bottom": 0
+			},
+			"名 字": "RootCanvas",
+			"ID": "70B58F9D465E82379C9433AD9A17A21E",
+			"可用性": true,
+			"可见性": 0,
+			"溢出隐藏": false,
+			"开启自动布局": true,
+			"布局":
+			{
+				"LayoutSpace": 480,
+				"Padding":
+				{
+					"Left": 500,
+					"Top": 0,
+					"Right": 500,
+					"Bottom": 260
+				},
+				"Layout": 0,
+				"LayoutPacket": 8,
+				"AutoLayout": true,
+				"HugContent":
+				{
+					"HugContentW": 1,
+					"HugContentH": 0
+				},
+				"AutoWrap": true
+			}
+		},
+		"名 字": "Start",
+		"ID": "5898A1C142C7B157FF936384E78E0852",
+		"可用性": true,
+		"可见性": 0,
+		"焦点": false,
+		"设计分辨率":
+		{
+			"X": 1920,
+			"Y": 1080
+		},
+		"布局": true,
+		"TS脚本":
+		{
+			"脚本路径": "",
+			"脚本ID": ""
+		}
+	}
+}

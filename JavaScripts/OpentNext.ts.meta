@@ -1,14 +1,11 @@
-{
+﻿{
 	"Version": "1",
 	"Guid": "9CDA43154B28CEF03D10AEBF41900BF9",
 	"Name": "OpentNext.ts",
 	"Type": "JavaScript",
-	"Language":
-	{
-	},
 	"Icon": "",
 	"Size": 0,
-	"Url": "",
+	"URL": "",
 	"Sha1": "",
 	"SortId": 0,
 	"Timestamp": 0

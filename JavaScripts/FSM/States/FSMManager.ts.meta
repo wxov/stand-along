@@ -1,14 +1,11 @@
-{
+﻿{
 	"Version": "1",
 	"Guid": "FE021DE74961A1D98F5CB98560D4FBD1",
 	"Name": "FSMManager.ts",
 	"Type": "JavaScript",
-	"Language":
-	{
-	},
 	"Icon": "",
 	"Size": 0,
-	"Url": "",
+	"URL": "",
 	"Sha1": "",
 	"SortId": 0,
 	"Timestamp": 0

@@ -1,14 +1,11 @@
-{
+﻿{
 	"Version": "1",
-	"Guid": "7CC4C2A84B791480DBE6E7BA91570BBD",
-	"Name": "PlayerStart.ts",
+	"Guid": "35B66A2F4109072523EB4F80AD424FCF",
+	"Name": "MushroomTrap.ts",
 	"Type": "JavaScript",
-	"Language":
-	{
-	},
 	"Icon": "",
 	"Size": 0,
-	"Url": "",
+	"URL": "",
 	"Sha1": "",
 	"SortId": 0,
 	"Timestamp": 0

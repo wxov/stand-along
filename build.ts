@@ -6,10 +6,16 @@ import * as foreign4 from './JavaScripts/FSM/States/FSMManager';
 import * as foreign5 from './JavaScripts/FSM/States/GamingState';
 import * as foreign6 from './JavaScripts/FSM/States/WaitingState';
 import * as foreign7 from './JavaScripts/GameLogic';
-import * as foreign8 from './JavaScripts/MovementDriver';
-import * as foreign9 from './JavaScripts/OpentNext';
-import * as foreign10 from './JavaScripts/PlayerStart';
-import * as foreign11 from './JavaScripts/Prick';
+import * as foreign8 from './JavaScripts/GameUI';
+import * as foreign9 from './JavaScripts/MovementDriver';
+import * as foreign10 from './JavaScripts/MushroomTrap';
+import * as foreign11 from './JavaScripts/OpentNext';
+import * as foreign12 from './JavaScripts/ReadytoStart';
+import * as foreign13 from './JavaScripts/Rotator';
+import * as foreign14 from './JavaScripts/StartUI';
+import * as foreign15 from './JavaScripts/TriggerEventD';
+import * as foreign16 from './JavaScripts/UIFloatMessage';
+import * as foreign17 from './JavaScripts/UIUtils';
 
 
 export const MWModuleMap = {
@@ -21,8 +27,14 @@ export const MWModuleMap = {
     'JavaScripts/FSM/States/GamingState': foreign5, 
     'JavaScripts/FSM/States/WaitingState': foreign6, 
     'JavaScripts/GameLogic': foreign7, 
-    'JavaScripts/MovementDriver': foreign8, 
-    'JavaScripts/OpentNext': foreign9, 
-    'JavaScripts/PlayerStart': foreign10, 
-    'JavaScripts/Prick': foreign11, 
+    'JavaScripts/GameUI': foreign8, 
+    'JavaScripts/MovementDriver': foreign9, 
+    'JavaScripts/MushroomTrap': foreign10, 
+    'JavaScripts/OpentNext': foreign11, 
+    'JavaScripts/ReadytoStart': foreign12, 
+    'JavaScripts/Rotator': foreign13, 
+    'JavaScripts/StartUI': foreign14, 
+    'JavaScripts/TriggerEventD': foreign15, 
+    'JavaScripts/UIFloatMessage': foreign16, 
+    'JavaScripts/UIUtils': foreign17, 
 };
