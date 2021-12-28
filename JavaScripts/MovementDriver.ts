@@ -1,13 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2021-12-24 16:08:29
- * @LastEditTime: 2021-12-24 16:09:08
- * @LastEditors: your name
+ * @LastEditTime: 2021-12-28 18:23:01
+ * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \JavaScripts\MovementDriver.ts
  */
 import * as UE from "ue";
 import * as puerts from "puerts";
+import GameStatus from "./GameStatus/GameStatus";
 
 @MWCore.MWClass
 class MovementDriver extends MWCore.MWScript {
@@ -64,6 +65,16 @@ class MovementDriver extends MWCore.MWScript {
     OnUpdate(dt: number) {
         if (!GamePlay.IsServer()) return;
 
+        if (GameStatus.Instance.IsStart) {
+            this.MoveShape(dt)
+        }
+    }
+
+    /**
+     * 移动
+     * @param dt 
+     */
+    private MoveShape(dt: number): void {
         this._moveTimer += dt;
         while (this._moveTimer >= this._moveTime) {
             this._moveTimer -= this._moveTime;
@@ -77,7 +88,13 @@ class MovementDriver extends MWCore.MWScript {
                 this._to = this._max;
             }
         }
+        this.ChangePosition()
+    }
 
+    /**
+     * 改变位置
+     */
+    private ChangePosition():void {
         let location = this.gameObject.location;
         if (this.moveAxis.match("y")) {
             location.y = this._lerpFloat(this._from, this._to, this._moveTimer / this._moveTime);
@@ -92,6 +109,13 @@ class MovementDriver extends MWCore.MWScript {
         this.gameObject.location = location;
     }
 
+    /**
+     * 计算移动的距离
+     * @param from 
+     * @param to 
+     * @param ratio 
+     * @returns 
+     */
     private _lerpFloat(from: number, to: number, ratio: number): number {
         return from + (to - from) * ratio;
     }

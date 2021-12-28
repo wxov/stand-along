@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-24 15:04:08
- * @LastEditTime: 2021-12-27 10:32:00
+ * @LastEditTime: 2021-12-28 18:10:04
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \JavaScripts\FSM\States\CalculateState.ts
@@ -16,7 +16,7 @@ export class CalculateState implements IFSMState {
 	//是否成功通关游戏
 	private _mFinishedGame: boolean = false
 	//自动跳转等待状态的等待时间
-	private _mAutoGoWaitStateTime: number = 3
+	// private _mAutoGoWaitStateTime: number = 3
 	constructor(finishGame: boolean) {
 		this._mFinishedGame = finishGame;
 	}
@@ -33,10 +33,10 @@ export class CalculateState implements IFSMState {
 		}
 
 		//_mAutoGoWaitStateTime秒之后切换到等待状态.
-		setTimeout(() => {
-			//TODO::切换到等待状态.
-			FSMManager.Instance.ChangeState(WaitingState);
-		}, this._mAutoGoWaitStateTime);
+		// setTimeout(() => {
+			//::切换到等待状态.
+			// FSMManager.Instance.ChangeState(WaitingState);
+		// }, this._mAutoGoWaitStateTime);
 	}
 
 	Update(): void { }

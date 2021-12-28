@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-12-27 10:24:24
- * @LastEditTime: 2021-12-27 10:24:55
- * @LastEditors: your name
+ * @LastEditTime: 2021-12-28 19:35:34
+ * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \JavaScripts\Rotator.ts
  */

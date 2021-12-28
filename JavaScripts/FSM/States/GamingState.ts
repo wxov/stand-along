@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-24 15:04:08
- * @LastEditTime: 2021-12-27 13:44:56
+ * @LastEditTime: 2021-12-28 17:24:23
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \JavaScripts\FSM\States\GamingState.ts
@@ -36,8 +36,8 @@ export class GamingState implements IFSMState {
 		this._mCurrentGamingTime = 0
 		this._mCheckPointListener = Events.AddLocalListener("GameEvents_CheckPoint",
 			(player: MWCore.GameObject) => {
-				this._mPlayerFinishGame = true;
-			});
+				this._mPlayerFinishGame = true
+			})
 		console.log("---[FSM Log]:: GamingState Enter.");
 	}
 

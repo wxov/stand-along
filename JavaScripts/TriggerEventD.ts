@@ -1,13 +1,15 @@
 /*
  * @Author: your name
  * @Date: 2021-12-27 14:20:17
- * @LastEditTime: 2021-12-27 14:34:24
+ * @LastEditTime: 2021-12-28 20:16:13
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \JavaScripts\TriggerEventD.ts
  */
 import * as UE from "ue";
 import * as puerts from "puerts";
+import EventsName from "./FSM/Interface/EventsName";
+// import EN from "./FSM/Interface/EventsName"
 @MWCore.MWClass
 class TriggerEventDispatcher extends MWCore.MWScript {
 
@@ -37,7 +39,7 @@ class TriggerEventDispatcher extends MWCore.MWScript {
         if (this.FillterCharacter && !GamePlay.IsCharacter(go)) {
             return;
         }
-        Events.DispatchLocal(this.TriggerName + "In", { gameObject: go, trigger: this.trigger });
+        Events.DispatchLocal(EventsName.toLocal_BTrapT, { gameObject: go, trigger: this.trigger });
     }
 
     OnTriggerOut(go: MWCore.GameObject): void {

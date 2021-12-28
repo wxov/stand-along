@@ -73,11 +73,11 @@
 			"Name": "BP_BoxTrigger",
 			"Type": "Pak_Actor",
 			"Icon": "https://res-content-flow.meta-verse.co/Content/Icon/23050/7954ddecddadfbd8456b575f055a47aaf6a09fcc",
-			"Size": 1811,
-			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/1811/04850a9dab67912a7641796c93fa150396ef9f08",
-			"Sha1": "04850a9dab67912a7641796c93fa150396ef9f08",
+			"Size": 1934,
+			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/1934/6dc9b1c71c3f84fd5d7a48c42e42eb0280971290",
+			"Sha1": "6dc9b1c71c3f84fd5d7a48c42e42eb0280971290",
 			"SortId": 0,
-			"Timestamp": 1640248668813
+			"Timestamp": 1640672095413
 		},
 		"117":
 		{
@@ -87,10 +87,10 @@
 			"Type": "Pak_Actor",
 			"Icon": "https://res-content-flow.meta-verse.co/Content/Icon/28204/4087eeef917f77d875275199ec4f54d7dfdbac6a",
 			"Size": 2185,
-			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/2185/c0db7c50af919756996ae95218a9fff5665693c7",
-			"Sha1": "c0db7c50af919756996ae95218a9fff5665693c7",
+			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/2185/4534632e274b9a39676a687af8b85e9d74b2dd5d",
+			"Sha1": "4534632e274b9a39676a687af8b85e9d74b2dd5d",
 			"SortId": 0,
-			"Timestamp": 1640248668817
+			"Timestamp": 1640672095455
 		},
 		"13088":
 		{
@@ -138,11 +138,11 @@
 			"Name": "Rifle_Stand_Aim_Fire",
 			"Type": "Pak_MWAnimation",
 			"Icon": "https://res-content-flow.meta-verse.co/Content/Icon/25503/1b269137ef5d9f814f43cc2fa8b53802acf875c8",
-			"Size": 19324,
-			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/19324/1699ddeb1508094fa1fbf7eb32257d63a5d1f471",
-			"Sha1": "1699ddeb1508094fa1fbf7eb32257d63a5d1f471",
+			"Size": 19255,
+			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/19255/e3a10022964871a9d596fcae97f08b1b631b7dbc",
+			"Sha1": "e3a10022964871a9d596fcae97f08b1b631b7dbc",
 			"SortId": 0,
-			"Timestamp": 1640237712810
+			"Timestamp": 1640672096638
 		},
 		"4169":
 		{
@@ -151,11 +151,11 @@
 			"Name": "Rifle_Stand_Fire",
 			"Type": "Pak_MWAnimation",
 			"Icon": "https://res-content-flow.meta-verse.co/Content/Icon/25503/1b269137ef5d9f814f43cc2fa8b53802acf875c8",
-			"Size": 8048,
-			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/8048/353c3f6a331f1146b7caacf880941ddbbe653739",
-			"Sha1": "353c3f6a331f1146b7caacf880941ddbbe653739",
+			"Size": 8479,
+			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/8479/554362e2677afbeff153b8fde616b8220812edd4",
+			"Sha1": "554362e2677afbeff153b8fde616b8220812edd4",
 			"SortId": 0,
-			"Timestamp": 1640237712807
+			"Timestamp": 1640672096631
 		},
 		"4171":
 		{
@@ -164,11 +164,11 @@
 			"Name": "Rifle_Stand_Reload",
 			"Type": "Pak_MWAnimation",
 			"Icon": "https://res-content-flow.meta-verse.co/Content/Icon/25503/1b269137ef5d9f814f43cc2fa8b53802acf875c8",
-			"Size": 127713,
-			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/127713/bc581fffeec6d1736f3f4398420d55e0e5107865",
-			"Sha1": "bc581fffeec6d1736f3f4398420d55e0e5107865",
+			"Size": 130795,
+			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/130795/6ed9e45e82c76cf031c88b5de131541dd6fce663",
+			"Sha1": "6ed9e45e82c76cf031c88b5de131541dd6fce663",
 			"SortId": 0,
-			"Timestamp": 1640237712806
+			"Timestamp": 1640672095569
 		},
 		"4170":
 		{
@@ -178,10 +178,10 @@
 			"Type": "Pak_MWAnimation",
 			"Icon": "https://res-content-flow.meta-verse.co/Content/Icon/25503/1b269137ef5d9f814f43cc2fa8b53802acf875c8",
 			"Size": 19058,
-			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/19058/a7ec6744565857f69804547ac1e9b865519a09cb",
-			"Sha1": "a7ec6744565857f69804547ac1e9b865519a09cb",
+			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/19058/6c8dca9bd3c94f72d64dd4cfdb0aac72166f9fb7",
+			"Sha1": "6c8dca9bd3c94f72d64dd4cfdb0aac72166f9fb7",
 			"SortId": 0,
-			"Timestamp": 1640237712824
+			"Timestamp": 1640672095529
 		},
 		"4173":
 		{
@@ -190,11 +190,11 @@
 			"Name": "Rifle_Stance",
 			"Type": "Pak_AnimInstance",
 			"Icon": "https://res-content-flow.meta-verse.co/Content/Icon/25503/1b269137ef5d9f814f43cc2fa8b53802acf875c8",
-			"Size": 369797,
-			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/369797/89677f8efc424859a84737b27cc6d7d26001b13c",
-			"Sha1": "89677f8efc424859a84737b27cc6d7d26001b13c",
+			"Size": 373301,
+			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/373301/687efc1b8d46365802b09daa3008c02f52059540",
+			"Sha1": "687efc1b8d46365802b09daa3008c02f52059540",
 			"SortId": 0,
-			"Timestamp": 1640237714737
+			"Timestamp": 1640672098597
 		},
 		"4172":
 		{
@@ -203,11 +203,11 @@
 			"Name": "Rifle_Aim_Stance",
 			"Type": "Pak_AnimInstance",
 			"Icon": "https://res-content-flow.meta-verse.co/Content/Icon/25503/1b269137ef5d9f814f43cc2fa8b53802acf875c8",
-			"Size": 215691,
-			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/215691/387d7c884a4f22b628dd84c4294cd79ee8b405a8",
-			"Sha1": "387d7c884a4f22b628dd84c4294cd79ee8b405a8",
+			"Size": 223415,
+			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/223415/c0c776f7982b3a3871cd1284e37a9351335f12de",
+			"Sha1": "c0c776f7982b3a3871cd1284e37a9351335f12de",
 			"SortId": 0,
-			"Timestamp": 1640237714730
+			"Timestamp": 1640672098615
 		},
 		"21588":
 		{
@@ -256,10 +256,10 @@
 			"Type": "Pak_Actor",
 			"Icon": "https://res-content-flow.meta-verse.co/Content/Icon/20630/c448448e4fc382897f987e4dbfe5a91118aa1bb3",
 			"Size": 1955,
-			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/1955/a905505e450d48bb6663642433a11f5cfed10643",
-			"Sha1": "a905505e450d48bb6663642433a11f5cfed10643",
+			"URL": "https://res-content-flow.meta-verse.co/Content/Resource/1955/434ad7ed1cc38bc1ad21f3ad570f32af8cec43b5",
+			"Sha1": "434ad7ed1cc38bc1ad21f3ad570f32af8cec43b5",
 			"SortId": 0,
-			"Timestamp": 1640248668814
+			"Timestamp": 1640672096142
 		}
 	},
 	"Script":
@@ -329,6 +329,32 @@
 			"SortId": 0,
 			"Timestamp": 0
 		},
+		"AB7EA0A343F920D12B54CBA8BBDCD258":
+		{
+			"Version": "1",
+			"Guid": "AB7EA0A343F920D12B54CBA8BBDCD258",
+			"Name": "EventsName.ts",
+			"Type": "JavaScript",
+			"Icon": "",
+			"Size": 0,
+			"URL": "",
+			"Sha1": "",
+			"SortId": 0,
+			"Timestamp": 0
+		},
+		"8694F6B44341ACD1FCAC3CA71AE4F221":
+		{
+			"Version": "1",
+			"Guid": "8694F6B44341ACD1FCAC3CA71AE4F221",
+			"Name": "GameStatus.ts",
+			"Type": "JavaScript",
+			"Icon": "",
+			"Size": 0,
+			"URL": "",
+			"Sha1": "",
+			"SortId": 0,
+			"Timestamp": 0
+		},
 		"E8CB00F446D9ABEBE30928976CE372D0":
 		{
 			"Version": "1",
@@ -368,6 +394,19 @@
 			"SortId": 0,
 			"Timestamp": 0
 		},
+		"F5B69E4A45DB38F349A697BE25BC8AEF":
+		{
+			"Version": "1",
+			"Guid": "F5B69E4A45DB38F349A697BE25BC8AEF",
+			"Name": "StartUI.ts",
+			"Type": "JavaScript",
+			"Icon": "",
+			"Size": 0,
+			"URL": "",
+			"Sha1": "",
+			"SortId": 0,
+			"Timestamp": 0
+		},
 		"ACD3E77F4014DD63079579B5CFE17257":
 		{
 			"Version": "1",
@@ -399,19 +438,6 @@
 			"Version": "1",
 			"Guid": "9CDA43154B28CEF03D10AEBF41900BF9",
 			"Name": "OpentNext.ts",
-			"Type": "JavaScript",
-			"Icon": "",
-			"Size": 0,
-			"URL": "",
-			"Sha1": "",
-			"SortId": 0,
-			"Timestamp": 0
-		},
-		"F5B69E4A45DB38F349A697BE25BC8AEF":
-		{
-			"Version": "1",
-			"Guid": "F5B69E4A45DB38F349A697BE25BC8AEF",
-			"Name": "StartUI.ts",
 			"Type": "JavaScript",
 			"Icon": "",
 			"Size": 0,
@@ -502,19 +528,6 @@
 	"Prefab": null,
 	"GameUI":
 	{
-		"5A39AE034A3B2988263E35929958A5BC":
-		{
-			"Version": "1",
-			"Guid": "5A39AE034A3B2988263E35929958A5BC",
-			"Name": "demo.ui",
-			"Type": "GameUI",
-			"Icon": "",
-			"Size": 0,
-			"URL": "",
-			"Sha1": "",
-			"SortId": 0,
-			"Timestamp": 0
-		},
 		"99A9C7364607808A15E3F5A70B7CB2D5":
 		{
 			"Version": "1",

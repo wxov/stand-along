@@ -1,19 +1,21 @@
 /*
  * @Author: your name
  * @Date: 2021-12-24 16:12:54
- * @LastEditTime: 2021-12-27 18:20:52
+ * @LastEditTime: 2021-12-28 20:16:18
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \JavaScripts\Prick.ts
  */
 import * as UE from "ue";
 import * as puerts from "puerts";
+import EventsName from "./FSM/Interface/EventsName";
+// import * as EN from "./FSM/Interface/EventsName";
 
-export namespace EventsName {
-    export const ReqUseTrap = "ReqUseTrap"
-    export const NtfGotTrap = "NtfGotTrap"
-    export const NtfPlayerInTrap = "NtfPlayerInTrap"
-}
+// export namespace EventsName {
+//     export const ReqUseTrap = "ReqUseTrap"
+//     export const NtfGotTrap = "NtfGotTrap"
+//     export const NtfPlayerInTrap = "NtfPlayerInTrap"
+// }
 
 @MWCore.MWClass
 class MushroomTrap extends MWCore.MWScript {
@@ -49,12 +51,16 @@ class MushroomTrap extends MWCore.MWScript {
                 }
             }
             if (this.IsRunningClient()) {
-                this.listeners.push(Events.AddServerListener(EventsName.NtfGotTrap, this.OnNtfGotTrap.bind(this)));
-                this.listeners.push(Events.AddServerListener(EventsName.NtfPlayerInTrap, this.OnNtfPlayerInTrap.bind(this)));
+                this.listeners.push(Events.AddServerListener(EventsName.StoC_NtfGotTrap,
+                    this.OnNtfGotTrap.bind(this)));
+                this.listeners.push(Events.AddServerListener(EventsName.StoC_NtfPlayerInTrap,
+                    this.OnNtfPlayerInTrap.bind(this)));
             }
             else {
-                this.listeners.push(Events.AddLocalListener("BubbleTrapTriggerIn", this.OnBubbleTrapTriggerIn.bind(this)));
-                this.listeners.push(Events.AddClientListener(EventsName.ReqUseTrap, this.OnReqUseTrap.bind(this)));
+                this.listeners.push(Events.AddLocalListener(EventsName.toLocal_BTrapT,
+                    this.OnBubbleTrapTriggerIn.bind(this)));
+                this.listeners.push(Events.AddClientListener(EventsName.CtoS_ReqUseTrap,
+                    this.OnReqUseTrap.bind(this)));
             }
             // clearTimeout(this.timerHandler);
             // this.timerHandler = 0;
@@ -95,7 +101,7 @@ class MushroomTrap extends MWCore.MWScript {
     OnReqPickTrap(player: GamePlay.Player, args: any): void {
         if (!this.ownerId) {
             this.ownerId = player.GetPlayerID();
-            Events.DispatchToClient(player, EventsName.NtfGotTrap, this.id);
+            Events.DispatchToClient(player, EventsName.StoC_NtfGotTrap, this.id);
             this.trigger.SetCollisionEnabled(false);
             this.gameObject.Actor.SetActorHiddenInGame(true);
         }
@@ -109,7 +115,7 @@ class MushroomTrap extends MWCore.MWScript {
             console.error("----------" + targetPlayer);
             if (targetPlayer) {
                 this.ownerId = targetPlayer.GetPlayerID();
-                Events.DispatchToClient(targetPlayer, EventsName.NtfGotTrap, targetPlayer.GetPlayerID());
+                Events.DispatchToClient(targetPlayer, EventsName.StoC_NtfGotTrap, targetPlayer.GetPlayerID());
                 args.trigger.SetCollisionEnabled(false);
                 this.gameObject.Actor.SetActorHiddenInGame(true);
             }
@@ -120,7 +126,7 @@ class MushroomTrap extends MWCore.MWScript {
             }
             args.trigger.SetCollisionEnabled(false);
             this.gameObject.Actor.SetActorHiddenInGame(true);
-            Events.DispatchToAllClient(targetPlayer, EventsName.NtfPlayerInTrap, targetPlayer.GetPlayerID());
+            Events.DispatchToAllClient(targetPlayer, EventsName.StoC_NtfPlayerInTrap, targetPlayer.GetPlayerID());
         }
     }
 
@@ -144,7 +150,7 @@ class MushroomTrap extends MWCore.MWScript {
             show: true,
             callback: () => {
                 console.log("--------------------UI btn call back");
-                Events.DispatchToServer(EventsName.ReqUseTrap, null);
+                Events.DispatchToServer(EventsName.CtoS_ReqUseTrap, null);
                 Events.DispatchLocal("UIEvents_GameUI_Btn", { show: false, callback: null });
             }
         });
@@ -153,7 +159,7 @@ class MushroomTrap extends MWCore.MWScript {
     // 执行陷阱效果
     OnNtfPlayerInTrap(...args): void {
         let character = args.length > 1 ? (args[0] as GamePlay.Player).Character : GamePlay.GetCurrentPlayer().Character;
-        if (character&&this.ownerId != this.GetCharacterPlayer(character).GetPlayerID()) {
+        if (character && this.ownerId != this.GetCharacterPlayer(character).GetPlayerID()) {
             character.SetAnimationStance(GamePlay.AnimationStanceType.LayDown);
             character.CanMove = false;
             // this.timerHandler = 

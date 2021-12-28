@@ -9,6 +9,24 @@
 			"Asset": "1678"
 		},
 		{
+			"Guid": "2392",
+			"Asset": "2392",
+			"Metallic": 0,
+			"Roughness": 0.5,
+			"Tile_X": 1,
+			"Tile_Y": 1,
+			"Offset_X": 0,
+			"Offset_Y": 0,
+			"Main_Color":
+			{
+				"R": 1,
+				"G": 1,
+				"B": 1,
+				"A": 1
+			},
+			"Main_Tex": "1405"
+		},
+		{
 			"Guid": "12993",
 			"Asset": "12993",
 			"Metallic": 0.35238099098205566,
@@ -80,42 +98,6 @@
 			"Main_Tex": "1413"
 		},
 		{
-			"Guid": "7735",
-			"Asset": "7735",
-			"Metallic": 0,
-			"Roughness": 1,
-			"Tile_X": 1,
-			"Tile_Y": 1,
-			"Offset_X": 0,
-			"Offset_Y": 0,
-			"Main_Color":
-			{
-				"R": 0.79166668653488159,
-				"G": 0.79166668653488159,
-				"B": 0.79166668653488159,
-				"A": 1
-			},
-			"Main_Tex": "7734"
-		},
-		{
-			"Guid": "2392",
-			"Asset": "2392",
-			"Metallic": 0,
-			"Roughness": 0.5,
-			"Tile_X": 1,
-			"Tile_Y": 1,
-			"Offset_X": 0,
-			"Offset_Y": 0,
-			"Main_Color":
-			{
-				"R": 1,
-				"G": 1,
-				"B": 1,
-				"A": 1
-			},
-			"Main_Tex": "1405"
-		},
-		{
 			"Guid": "19856",
 			"Asset": "19856",
 			"Metallic": 0.35238099098205566,
@@ -132,24 +114,6 @@
 				"A": 1
 			},
 			"Main_Tex": "20414"
-		},
-		{
-			"Guid": "12802",
-			"Asset": "12802",
-			"Metallic": 0.104762002825737,
-			"Roughness": 0.2494329959154129,
-			"Tile_X": 1,
-			"Tile_Y": 1,
-			"Offset_X": 0,
-			"Offset_Y": 0,
-			"Main_Color":
-			{
-				"R": 1,
-				"G": 1,
-				"B": 1,
-				"A": 1
-			},
-			"Main_Tex": "12779"
 		},
 		{
 			"Guid": "1732",
@@ -186,24 +150,6 @@
 				"A": 1
 			},
 			"Main_Tex": "1346"
-		},
-		{
-			"Guid": "1676",
-			"Asset": "1676",
-			"Metallic": 0.10000000149011612,
-			"Roughness": 1,
-			"Tile_X": 1,
-			"Tile_Y": 1,
-			"Offset_X": 0,
-			"Offset_Y": 0,
-			"Main_Color":
-			{
-				"R": 1,
-				"G": 1,
-				"B": 1,
-				"A": 1
-			},
-			"Main_Tex": "1354"
 		},
 		{
 			"Guid": "1813",
@@ -312,6 +258,60 @@
 				"A": 1
 			},
 			"Main_Tex": "1375"
+		},
+		{
+			"Guid": "12802",
+			"Asset": "12802",
+			"Metallic": 0.104762002825737,
+			"Roughness": 0.2494329959154129,
+			"Tile_X": 1,
+			"Tile_Y": 1,
+			"Offset_X": 0,
+			"Offset_Y": 0,
+			"Main_Color":
+			{
+				"R": 1,
+				"G": 1,
+				"B": 1,
+				"A": 1
+			},
+			"Main_Tex": "12779"
+		},
+		{
+			"Guid": "1676",
+			"Asset": "1676",
+			"Metallic": 0.10000000149011612,
+			"Roughness": 1,
+			"Tile_X": 1,
+			"Tile_Y": 1,
+			"Offset_X": 0,
+			"Offset_Y": 0,
+			"Main_Color":
+			{
+				"R": 1,
+				"G": 1,
+				"B": 1,
+				"A": 1
+			},
+			"Main_Tex": "1354"
+		},
+		{
+			"Guid": "7735",
+			"Asset": "7735",
+			"Metallic": 0,
+			"Roughness": 1,
+			"Tile_X": 1,
+			"Tile_Y": 1,
+			"Offset_X": 0,
+			"Offset_Y": 0,
+			"Main_Color":
+			{
+				"R": 0.79166668653488159,
+				"G": 0.79166668653488159,
+				"B": 0.79166668653488159,
+				"A": 1
+			},
+			"Main_Tex": "7734"
 		}
 	],
 	"Levels": [
@@ -680,7 +680,7 @@
 									},
 									"Asset": "113",
 									"ActorLevel": 0,
-									"ActorFlag": 7,
+									"ActorFlag": 71,
 									"SourceType": "逻辑对象/逻辑对象/常用逻辑对象/Model/BP_BoxTrigger",
 									"NetCullingDistance": 225000000,
 									"AlwaysRelevant": false,
@@ -769,7 +769,7 @@
 									},
 									"Asset": "7669",
 									"ActorLevel": 0,
-									"ActorFlag": 7,
+									"ActorFlag": 71,
 									"SourceType": "资源对象/基础模型/静态模型/Static Mesh/SM_Shape_Cube.uasset.json",
 									"NetCullingDistance": 225000000,
 									"AlwaysRelevant": false,
@@ -1002,7 +1002,7 @@
 							},
 							"Asset": "7669",
 							"ActorLevel": 0,
-							"ActorFlag": 7,
+							"ActorFlag": 71,
 							"SourceType": "资源对象/基础模型/静态模型/Static Mesh/SM_Shape_Cube.uasset.json",
 							"NetCullingDistance": 225000000,
 							"AlwaysRelevant": false,
@@ -1154,11 +1154,11 @@
 									},
 									"Asset": "13088",
 									"ActorLevel": 0,
-									"ActorFlag": 7,
+									"ActorFlag": 71,
 									"SourceType": "资源对象/灾难模拟器/静态模型/Static Mesh/SM_Weapon_TNT_001.uasset.json",
 									"NetCullingDistance": 225000000,
 									"AlwaysRelevant": false,
-									"Visible": 0,
+									"Visible": 1,
 									"Collision": 2,
 									"MWStaticStatus": false,
 									"MWNetStatus": 2,
@@ -1269,7 +1269,7 @@
 											},
 											"Asset": "113",
 											"ActorLevel": 0,
-											"ActorFlag": 7,
+											"ActorFlag": 71,
 											"SourceType": "逻辑对象/逻辑对象/常用逻辑对象/Model/BP_BoxTrigger",
 											"NetCullingDistance": 225000000,
 											"AlwaysRelevant": false,
@@ -1323,7 +1323,7 @@
 													"DestroyTimer": 0,
 													"Script":
 													{
-														"TriggerName": "BubbleTrapTrigger",
+														"TriggerName": "OnBubbleTrapTrigger",
 														"FillterCharacter": false
 													},
 													"ScriptAsset": "890160C346505413BFF5EC8E968E706B",
@@ -1416,11 +1416,11 @@
 									},
 									"Asset": "13088",
 									"ActorLevel": 0,
-									"ActorFlag": 7,
+									"ActorFlag": 71,
 									"SourceType": "资源对象/灾难模拟器/静态模型/Static Mesh/SM_Weapon_TNT_001.uasset.json",
 									"NetCullingDistance": 225000000,
 									"AlwaysRelevant": false,
-									"Visible": 0,
+									"Visible": 1,
 									"Collision": 2,
 									"MWStaticStatus": false,
 									"MWNetStatus": 2,
@@ -1531,7 +1531,7 @@
 											},
 											"Asset": "113",
 											"ActorLevel": 0,
-											"ActorFlag": 7,
+											"ActorFlag": 71,
 											"SourceType": "逻辑对象/逻辑对象/常用逻辑对象/Model/BP_BoxTrigger",
 											"NetCullingDistance": 225000000,
 											"AlwaysRelevant": false,
@@ -1585,7 +1585,7 @@
 													"DestroyTimer": 0,
 													"Script":
 													{
-														"TriggerName": "BubbleTrapTrigger",
+														"TriggerName": "OnBubbleTrapTrigger",
 														"FillterCharacter": false
 													},
 													"ScriptAsset": "890160C346505413BFF5EC8E968E706B",
@@ -1683,7 +1683,7 @@
 									"NetCullingDistance": 225000000,
 									"AlwaysRelevant": false,
 									"Visible": 0,
-									"Collision": 2,
+									"Collision": 1,
 									"MWStaticStatus": false,
 									"MWNetStatus": 2,
 									"ParentGuid": "73A13EE645CA57E1118FA38134818122",
@@ -1721,12 +1721,12 @@
 									},
 									"Asset": "21581",
 									"ActorLevel": 0,
-									"ActorFlag": 7,
+									"ActorFlag": 71,
 									"SourceType": "资源对象/基础资源（中心锚点）/静态模型/Static Mesh/SM_Shape_NarrowCapsule_Center.uasset.json",
 									"NetCullingDistance": 225000000,
 									"AlwaysRelevant": false,
 									"Visible": 0,
-									"Collision": 2,
+									"Collision": 1,
 									"MWStaticStatus": false,
 									"MWNetStatus": 2,
 									"ParentGuid": "73A13EE645CA57E1118FA38134818122",
@@ -1846,7 +1846,7 @@
 									"NetCullingDistance": 225000000,
 									"AlwaysRelevant": false,
 									"Visible": 0,
-									"Collision": 2,
+									"Collision": 1,
 									"MWStaticStatus": false,
 									"MWNetStatus": 2,
 									"ParentGuid": "73A13EE645CA57E1118FA38134818122",
@@ -1963,7 +1963,7 @@
 							},
 							"Asset": "7669",
 							"ActorLevel": 0,
-							"ActorFlag": 7,
+							"ActorFlag": 71,
 							"SourceType": "资源对象/基础模型/静态模型/Static Mesh/SM_Shape_Cube.uasset.json",
 							"NetCullingDistance": 225000000,
 							"AlwaysRelevant": false,
@@ -2209,7 +2209,7 @@
 					},
 					"Asset": "21588",
 					"ActorLevel": 0,
-					"ActorFlag": 7,
+					"ActorFlag": 71,
 					"SourceType": "资源对象/基础资源（中心锚点）/静态模型/Static Mesh/SM_Shape_Cube_Center.uasset.json",
 					"NetCullingDistance": 225000000,
 					"AlwaysRelevant": false,
@@ -2693,7 +2693,7 @@
 										"MoveAxis": "l",
 										"moveDistance": 200,
 										"MoveSpeed": 20,
-										"timeAfter": 1
+										"timeAfter": 10
 									},
 									"ScriptAsset": "CB7A8B494282EAEBE2F9C4A129289B0D",
 									"TargetGuid": "FA93EED84296124B08D08084F393B98F",
@@ -2815,7 +2815,7 @@
 										"MoveAxis": "r",
 										"moveDistance": 200,
 										"MoveSpeed": 20,
-										"timeAfter": 1
+										"timeAfter": 10
 									},
 									"ScriptAsset": "CB7A8B494282EAEBE2F9C4A129289B0D",
 									"TargetGuid": "655AC8B94BE176C6ED47278589F8974F",
@@ -2824,56 +2824,6 @@
 							]
 						}
 					]
-				},
-				{
-					"Guid": "E000A46F4DE6BF06875CCAB79360DBA3",
-					"Name": "TriggerEventD",
-					"Tag": "",
-					"RootComponent":
-					{
-						"Transform":
-						{
-							"Position":
-							{
-								"X": 0,
-								"Y": 0,
-								"Z": 0
-							},
-							"Rotation":
-							{
-								"X": 0,
-								"Y": 0,
-								"Z": 0,
-								"W": 1
-							},
-							"Scale":
-							{
-								"X": 1,
-								"Y": 1,
-								"Z": 1
-							}
-						}
-					},
-					"Asset": "MetaWorld_JSActor",
-					"ActorLevel": 0,
-					"ActorFlag": 87,
-					"SourceType": "Script",
-					"NetCullingDistance": 225000000,
-					"AlwaysRelevant": true,
-					"Visible": 0,
-					"Collision": 0,
-					"MWStaticStatus": false,
-					"MWNetStatus": 2,
-					"ParentGuid": "",
-					"DestroyTimer": 0,
-					"Script":
-					{
-						"TriggerName": "",
-						"FillterCharacter": false
-					},
-					"ScriptAsset": "890160C346505413BFF5EC8E968E706B",
-					"TargetGuid": "",
-					"Children": []
 				},
 				{
 					"Guid": "6EADF4A843D8A32084EF08A26D6EBB72",
@@ -2906,7 +2856,7 @@
 					},
 					"Asset": "FEB8051542E8B22E86BDD692455AAD8B",
 					"ActorLevel": 0,
-					"ActorFlag": 7,
+					"ActorFlag": 71,
 					"SourceType": "UI",
 					"NetCullingDistance": 225000000,
 					"AlwaysRelevant": false,
@@ -2916,53 +2866,7 @@
 					"MWNetStatus": 1,
 					"ParentGuid": "",
 					"DestroyTimer": 0,
-					"Children": [
-						{
-							"Guid": "CE65CF764CD269DD2F930BB0AC291AE9",
-							"Name": "StartUI",
-							"Tag": "",
-							"RootComponent":
-							{
-								"Transform":
-								{
-									"Position":
-									{
-										"X": 0,
-										"Y": 0,
-										"Z": 0
-									},
-									"Rotation":
-									{
-										"X": 0,
-										"Y": 0,
-										"Z": 0,
-										"W": 1
-									},
-									"Scale":
-									{
-										"X": 1,
-										"Y": 1,
-										"Z": 1
-									}
-								}
-							},
-							"Asset": "MetaWorld_JSActor",
-							"ActorLevel": 0,
-							"ActorFlag": 87,
-							"SourceType": "Script",
-							"NetCullingDistance": 225000000,
-							"AlwaysRelevant": true,
-							"Visible": 0,
-							"Collision": 2,
-							"MWStaticStatus": false,
-							"MWNetStatus": 1,
-							"ParentGuid": "6EADF4A843D8A32084EF08A26D6EBB72",
-							"DestroyTimer": 0,
-							"ScriptAsset": "F5B69E4A45DB38F349A697BE25BC8AEF",
-							"TargetGuid": "6EADF4A843D8A32084EF08A26D6EBB72",
-							"Children": []
-						}
-					]
+					"Children": []
 				},
 				{
 					"Guid": "6947D92B454538C91A8FE19D6719753F",
@@ -3054,7 +2958,6 @@
 				}
 			],
 			"Assets": [
-				"",
 				"111",
 				"110",
 				"8444",

@@ -9,7 +9,6 @@ var MWUI = require('MWUI');
 var React = require('react');
 var Type = require('Type');
 var MWDesignerUI = require('MWDesignerUI');
-var UE = require('ue');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -40,7 +39,6 @@ var MWUI__default = /*#__PURE__*/_interopDefaultLegacy(MWUI);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 var Type__default = /*#__PURE__*/_interopDefaultLegacy(Type);
 var MWDesignerUI__default = /*#__PURE__*/_interopDefaultLegacy(MWDesignerUI);
-var UE__namespace = /*#__PURE__*/_interopNamespace(UE);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -126,8 +124,83 @@ var foreign1 = /*#__PURE__*/Object.freeze({
     'default': ClothTest$1
 });
 
+/*
+ * @Author: your name
+ * @Date: 2021-12-28 18:36:40
+ * @LastEditTime: 2021-12-28 20:16:02
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \JavaScripts\FSM\Interface\EventsName.ts
+ */
+/**
+ * 事件监听的名称
+ */
+var EventsName;
+(function (EventsName) {
+    /**
+     * 服务器监听客户端
+     */
+    EventsName["CtoS_StartGame"] = "StartTheGame";
+    EventsName["CtoS_ReqUseTrap"] = "ReqUseTrap";
+    /**
+     * 客户端监听服务端
+     */
+    EventsName["StoC_NtfGotTrap"] = "NtfGotTrap";
+    EventsName["StoC_NtfPlayerInTrap"] = "NtfPlayerInTrap";
+    /**
+     * 本地监听
+     */
+    EventsName["toLocal_BTrapT"] = "OnBubbleTrapTriggerIn";
+})(EventsName || (EventsName = {}));
+var EventsName$1 = EventsName;
+
 var foreign2 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    get EventsName () { return EventsName; },
+    'default': EventsName$1
+});
+
+var foreign3 = /*#__PURE__*/Object.freeze({
     __proto__: null
+});
+
+/** * 游戏结算状态 */
+class CalculateState {
+    //是否成功通关游戏
+    _mFinishedGame = false;
+    //自动跳转等待状态的等待时间
+    // private _mAutoGoWaitStateTime: number = 3
+    constructor(finishGame) {
+        this._mFinishedGame = finishGame;
+    }
+    //进入状态
+    Enter() {
+        console.log("---[FSM Log]:: CalculateState Enter.");
+        if (this._mFinishedGame) {
+            //胜利之后结算逻辑.
+            console.log("---[FSM Log]:: victory.");
+            return;
+        }
+        else {
+            //失败之后结算逻辑.
+            console.log("---[FSM Log]:: defeat.");
+        }
+        //_mAutoGoWaitStateTime秒之后切换到等待状态.
+        // setTimeout(() => {
+        //::切换到等待状态.
+        // FSMManager.Instance.ChangeState(WaitingState);
+        // }, this._mAutoGoWaitStateTime);
+    }
+    Update() { }
+    Exit() {
+        console.log("---[FSM Log]:: CalculateState Exit.");
+    }
+}
+
+var foreign4 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    CalculateState: CalculateState,
+    'default': CalculateState
 });
 
 class FSMManager {
@@ -175,7 +248,7 @@ class FSMManager {
     _mCurrentState = null;
 }
 
-var foreign4 = /*#__PURE__*/Object.freeze({
+var foreign5 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     FSMManager: FSMManager,
     'default': FSMManager
@@ -226,7 +299,7 @@ class GamingState {
     }
 }
 
-var foreign5 = /*#__PURE__*/Object.freeze({
+var foreign6 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     GamingState: GamingState,
     'default': GamingState
@@ -262,58 +335,79 @@ class WaitingState {
     }
 }
 
-var foreign6 = /*#__PURE__*/Object.freeze({
+var foreign7 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     WaitingState: WaitingState,
     'default': WaitingState
 });
 
-/** * 游戏结算状态 */
-class CalculateState {
-    //是否成功通关游戏
-    _mFinishedGame = false;
-    //自动跳转等待状态的等待时间
-    _mAutoGoWaitStateTime = 3;
-    constructor(finishGame) {
-        this._mFinishedGame = finishGame;
-    }
-    //进入状态
-    Enter() {
-        console.log("---[FSM Log]:: CalculateState Enter.");
-        if (this._mFinishedGame) {
-            //胜利之后结算逻辑.
-            console.log("---[FSM Log]:: victory.");
-            return;
+/*
+ * @Author: your name
+ * @Date: 2021-12-28 16:45:18
+ * @LastEditTime: 2021-12-28 18:15:34
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \JavaScripts\GameStaus\GameStatus.ts
+ */
+class GameStatus {
+    isStart;
+    isEnd;
+    static _mInstance;
+    static get Instance() {
+        if (this._mInstance == null) {
+            return this._mInstance = new GameStatus();
         }
-        else {
-            //失败之后结算逻辑.
-            console.log("---[FSM Log]:: defeat.");
-        }
-        //_mAutoGoWaitStateTime秒之后切换到等待状态.
-        setTimeout(() => {
-            //TODO::切换到等待状态.
-            FSMManager.Instance.ChangeState(WaitingState);
-        }, this._mAutoGoWaitStateTime);
+        return this._mInstance;
     }
-    Update() { }
-    Exit() {
-        console.log("---[FSM Log]:: CalculateState Exit.");
+    /**
+     * 改变游戏是否为开始状态
+     * @param is 是否开始游戏
+     */
+    ChangeStartState(is) {
+        this.isStart = is;
+    }
+    /**
+     * 改变游戏时候为结束状态
+     * @param is 游戏是否结束
+     */
+    ChangeEndState(is) {
+        this.isEnd = is;
+    }
+    get IsEnd() {
+        return this.isEnd;
+    }
+    get IsStart() {
+        return this.isStart;
     }
 }
 
-var foreign3 = /*#__PURE__*/Object.freeze({
+var foreign9 = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    CalculateState: CalculateState,
-    'default': CalculateState
+    GameStatus: GameStatus,
+    'default': GameStatus
 });
 
 let GameLogic = class GameLogic extends MWCore__default['default'].MWScript {
+    PlayerNum = 0;
+    ReadyPlayerNum = 0;
     OnPlay() {
-        FSMManager.Instance.ChangeState(WaitingState);
+        if (this.IsRunningClient()) ;
+        else {
+            Events__default['default'].AddPlayerJoinedListener(() => { this.PlayerNum += 1; });
+            Events__default['default'].AddClientListener(EventsName$1.CtoS_StartGame, () => {
+                this.ReadyPlayerNum += 1;
+                if (this.PlayerNum == this.ReadyPlayerNum) {
+                    GameStatus.Instance.ChangeStartState(true);
+                    FSMManager.Instance.ChangeState(WaitingState);
+                }
+            });
+        }
         this.bUseUpdate = true;
     }
     OnUpdate(dt) {
-        FSMManager.Instance.Update(dt);
+        if (GameStatus.Instance.IsStart) {
+            FSMManager.Instance.Update(dt);
+        }
     }
 };
 GameLogic = __decorate([
@@ -321,7 +415,7 @@ GameLogic = __decorate([
 ], GameLogic);
 var GameLogic$1 = GameLogic;
 
-var foreign7 = /*#__PURE__*/Object.freeze({
+var foreign8 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     get GameLogic () { return GameLogic; },
     'default': GameLogic$1
@@ -362,7 +456,7 @@ class UIUtils {
     }
 }
 
-var foreign17 = /*#__PURE__*/Object.freeze({
+var foreign19 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     UIUtils: UIUtils,
     'default': UIUtils
@@ -426,7 +520,7 @@ Events__default['default'].AddUIRenderListener(render => {
     render(React__namespace.createElement(GameUI, null));
 });
 
-var foreign8 = /*#__PURE__*/Object.freeze({
+var foreign10 = /*#__PURE__*/Object.freeze({
     __proto__: null
 });
 
@@ -469,6 +563,15 @@ let MovementDriver$2 = class MovementDriver extends MWCore__default['default'].M
     OnUpdate(dt) {
         if (!GamePlay__default['default'].IsServer())
             return;
+        if (GameStatus.Instance.IsStart) {
+            this.MoveShape(dt);
+        }
+    }
+    /**
+     * 移动
+     * @param dt
+     */
+    MoveShape(dt) {
         this._moveTimer += dt;
         while (this._moveTimer >= this._moveTime) {
             this._moveTimer -= this._moveTime;
@@ -482,6 +585,12 @@ let MovementDriver$2 = class MovementDriver extends MWCore__default['default'].M
                 this._to = this._max;
             }
         }
+        this.ChangePosition();
+    }
+    /**
+     * 改变位置
+     */
+    ChangePosition() {
         let location = this.gameObject.location;
         if (this.moveAxis.match("y")) {
             location.y = this._lerpFloat(this._from, this._to, this._moveTimer / this._moveTime);
@@ -494,6 +603,13 @@ let MovementDriver$2 = class MovementDriver extends MWCore__default['default'].M
         }
         this.gameObject.location = location;
     }
+    /**
+     * 计算移动的距离
+     * @param from
+     * @param to
+     * @param ratio
+     * @returns
+     */
     _lerpFloat(from, to, ratio) {
         return from + (to - from) * ratio;
     }
@@ -515,17 +631,17 @@ MovementDriver$2 = __decorate([
 ], MovementDriver$2);
 var MovementDriver$3 = MovementDriver$2;
 
-var foreign9 = /*#__PURE__*/Object.freeze({
+var foreign11 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     'default': MovementDriver$3
 });
 
-var EventsName;
-(function (EventsName) {
-    EventsName.ReqUseTrap = "ReqUseTrap";
-    EventsName.NtfGotTrap = "NtfGotTrap";
-    EventsName.NtfPlayerInTrap = "NtfPlayerInTrap";
-})(EventsName || (EventsName = {}));
+// import * as EN from "./FSM/Interface/EventsName";
+// export namespace EventsName {
+//     export const ReqUseTrap = "ReqUseTrap"
+//     export const NtfGotTrap = "NtfGotTrap"
+//     export const NtfPlayerInTrap = "NtfPlayerInTrap"
+// }
 let MushroomTrap = class MushroomTrap extends MWCore__default['default'].MWScript {
     id = 0;
     effectTime = 5000;
@@ -549,12 +665,12 @@ let MushroomTrap = class MushroomTrap extends MWCore__default['default'].MWScrip
                 }
             }
             if (this.IsRunningClient()) {
-                this.listeners.push(Events__default['default'].AddServerListener(EventsName.NtfGotTrap, this.OnNtfGotTrap.bind(this)));
-                this.listeners.push(Events__default['default'].AddServerListener(EventsName.NtfPlayerInTrap, this.OnNtfPlayerInTrap.bind(this)));
+                this.listeners.push(Events__default['default'].AddServerListener(EventsName$1.StoC_NtfGotTrap, this.OnNtfGotTrap.bind(this)));
+                this.listeners.push(Events__default['default'].AddServerListener(EventsName$1.StoC_NtfPlayerInTrap, this.OnNtfPlayerInTrap.bind(this)));
             }
             else {
-                this.listeners.push(Events__default['default'].AddLocalListener("BubbleTrapTriggerIn", this.OnBubbleTrapTriggerIn.bind(this)));
-                this.listeners.push(Events__default['default'].AddClientListener(EventsName.ReqUseTrap, this.OnReqUseTrap.bind(this)));
+                this.listeners.push(Events__default['default'].AddLocalListener(EventsName$1.toLocal_BTrapT, this.OnBubbleTrapTriggerIn.bind(this)));
+                this.listeners.push(Events__default['default'].AddClientListener(EventsName$1.CtoS_ReqUseTrap, this.OnReqUseTrap.bind(this)));
             }
             // clearTimeout(this.timerHandler);
             // this.timerHandler = 0;
@@ -591,7 +707,7 @@ let MushroomTrap = class MushroomTrap extends MWCore__default['default'].MWScrip
     OnReqPickTrap(player, args) {
         if (!this.ownerId) {
             this.ownerId = player.GetPlayerID();
-            Events__default['default'].DispatchToClient(player, EventsName.NtfGotTrap, this.id);
+            Events__default['default'].DispatchToClient(player, EventsName$1.StoC_NtfGotTrap, this.id);
             this.trigger.SetCollisionEnabled(false);
             this.gameObject.Actor.SetActorHiddenInGame(true);
         }
@@ -604,7 +720,7 @@ let MushroomTrap = class MushroomTrap extends MWCore__default['default'].MWScrip
             console.error("----------" + targetPlayer);
             if (targetPlayer) {
                 this.ownerId = targetPlayer.GetPlayerID();
-                Events__default['default'].DispatchToClient(targetPlayer, EventsName.NtfGotTrap, targetPlayer.GetPlayerID());
+                Events__default['default'].DispatchToClient(targetPlayer, EventsName$1.StoC_NtfGotTrap, targetPlayer.GetPlayerID());
                 args.trigger.SetCollisionEnabled(false);
                 this.gameObject.Actor.SetActorHiddenInGame(true);
             }
@@ -615,7 +731,7 @@ let MushroomTrap = class MushroomTrap extends MWCore__default['default'].MWScrip
             }
             args.trigger.SetCollisionEnabled(false);
             this.gameObject.Actor.SetActorHiddenInGame(true);
-            Events__default['default'].DispatchToAllClient(targetPlayer, EventsName.NtfPlayerInTrap, targetPlayer.GetPlayerID());
+            Events__default['default'].DispatchToAllClient(targetPlayer, EventsName$1.StoC_NtfPlayerInTrap, targetPlayer.GetPlayerID());
         }
     }
     // 获取触发陷阱的玩家
@@ -637,7 +753,7 @@ let MushroomTrap = class MushroomTrap extends MWCore__default['default'].MWScrip
             show: true,
             callback: () => {
                 console.log("--------------------UI btn call back");
-                Events__default['default'].DispatchToServer(EventsName.ReqUseTrap, null);
+                Events__default['default'].DispatchToServer(EventsName$1.CtoS_ReqUseTrap, null);
                 Events__default['default'].DispatchLocal("UIEvents_GameUI_Btn", { show: false, callback: null });
             }
         });
@@ -672,9 +788,8 @@ MushroomTrap = __decorate([
 ], MushroomTrap);
 var MushroomTrap$1 = MushroomTrap;
 
-var foreign10 = /*#__PURE__*/Object.freeze({
+var foreign12 = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    get EventsName () { return EventsName; },
     'default': MushroomTrap$1
 });
 
@@ -745,7 +860,7 @@ MovementDriver = __decorate([
 ], MovementDriver);
 var MovementDriver$1 = MovementDriver;
 
-var foreign11 = /*#__PURE__*/Object.freeze({
+var foreign13 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     'default': MovementDriver$1
 });
@@ -782,7 +897,7 @@ let ReadytoStart = class ReadytoStart extends MWCore__default['default'].MWScrip
         else {
             this.goTime += dt;
         }
-        if (this._mPlayerFinishGame) {
+        if (this._mPlayerFinishGame && GameStatus.Instance.IsStart) {
             this._moveTimer += dt;
             while (this._moveTimer >= this._moveTime) {
                 this._moveTimer -= this._moveTime;
@@ -819,7 +934,7 @@ ReadytoStart = __decorate([
 ], ReadytoStart);
 var ReadytoStart$1 = ReadytoStart;
 
-var foreign12 = /*#__PURE__*/Object.freeze({
+var foreign14 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     'default': ReadytoStart$1
 });
@@ -843,14 +958,18 @@ Rotator = __decorate([
 ], Rotator);
 var Rotator$1 = Rotator;
 
-var foreign13 = /*#__PURE__*/Object.freeze({
+var foreign15 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     'default': Rotator$1
 });
 
+// import * as EN from "./FSM/Interface/EventsName"
 let UIDefault = class UIDefault extends MWDesignerUI__default['default'].MWUIBehaviour {
+    UIShowName;
+    rootCanvas;
     constructor(o) {
         super(o);
+        this.UIShowName = '';
     }
     /**
     * Called once only at game time on non-template instances.
@@ -907,43 +1026,24 @@ let UIDefault = class UIDefault extends MWDesignerUI__default['default'].MWUIBeh
     // Tick(MyGeometry : UE.Geometry, InDeltaTime : number){
     // }
     InitEvents() {
-        let base = this.UIObject;
-        let getcvs = function (index) {
-            return base.FindChildByPath("MWCanvas_2147481337/Item" + index);
-        };
-        let getimg = function (index) {
-            let c = base.FindChildByPath("MWCanvas_2147481337/Item" + index);
-            return c.GetChildAt(0);
-        };
-        let getbtn = function (index) {
-            let c = base.FindChildByPath("MWCanvas_2147481337/Item" + index);
-            return c.GetChildAt(1);
-        };
-        getbtn(0).OnClicked.Add(() => {
-            getcvs(0).SetMWClip(!getcvs(0).GetMWClip());
-        });
-        getbtn(1).OnClicked.Add(() => {
-            getimg(1).SetRenderTransformAngle(UE__namespace.KismetMathLibrary.RandomInteger(360));
-        });
-        getbtn(2).OnClicked.Add(() => {
-            let cvs = getcvs(2);
-            let slotIndex_1 = cvs.GetChildAt(0).Slot.GetZOrder();
-            let slotIndex_2 = cvs.GetChildAt(2).Slot.GetZOrder();
-            cvs.GetChildAt(0).Slot.SetZOrder(slotIndex_2);
-            cvs.GetChildAt(2).Slot.SetZOrder(slotIndex_1);
-        });
-        getbtn(3).OnClicked.Add(() => {
-            getimg(3).Slot.SetAutoSize(!getimg(3).Slot.GetAutoSize());
-        });
-        getbtn(4).OnClicked.Add(() => {
-            let cvs = getcvs(4);
-            cvs.GetChildAt(0).SetIsEnabled(!cvs.GetChildAt(0).GetIsEnabled());
-        });
-        getbtn(5).OnClicked.Add(() => {
-            getimg(5).SetVisibility(getimg(5).GetVisibility() == UE__namespace.ESlateVisibility.SelfHitTestInvisible ? UE__namespace.ESlateVisibility.Collapsed : UE__namespace.ESlateVisibility.SelfHitTestInvisible);
-        });
-        let Txt = base.FindChildByPath("MWCanvas_2147481337/Item6/MWTextBlock_2147481612");
-        Txt.SetTextByString("节点有: " + base.FindChildByPath("Item6").GetChildrenCount() + " 个");
+        let base = MWDesignerUI__default['default'].MWUIUserWidget.Get(this.UIObject);
+        this.rootCanvas = MWDesignerUI__default['default'].MWUICanvas.Get(base.FindChildByPath("RootCanvas"));
+        let startGame = MWDesignerUI__default['default'].MWUIButton.Get(base.FindChildByPath("RootCanvas/Start_Game"));
+        let outGame = MWDesignerUI__default['default'].MWUIButton.Get(base.FindChildByPath("RootCanvas/Exit_Game"));
+        startGame.OnClicked().Add(() => { this.SwitchUIPrefab('Start_Game'); });
+        outGame.OnClicked().Add(() => { this.SwitchUIPrefab('Exit_Game'); });
+    }
+    SwitchUIPrefab(UIPrefabName) {
+        switch (UIPrefabName) {
+            case "Start_Game":
+                console.log("Start the game");
+                this.rootCanvas.SetVisibility(MWDesignerUI__default['default'].ESlateVisibility.Hidden);
+                Events__default['default'].DispatchToServer(EventsName$1.CtoS_StartGame, null);
+                break;
+            case "Exit_Game":
+                console.log("Exit the Game");
+                break;
+        }
     }
 };
 UIDefault = __decorate([
@@ -951,11 +1051,12 @@ UIDefault = __decorate([
 ], UIDefault);
 var UIDefault$1 = UIDefault;
 
-var foreign14 = /*#__PURE__*/Object.freeze({
+var foreign16 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     'default': UIDefault$1
 });
 
+// import EN from "./FSM/Interface/EventsName"
 let TriggerEventDispatcher = class TriggerEventDispatcher extends MWCore__default['default'].MWScript {
     TriggerName = "";
     FillterCharacter = false;
@@ -977,7 +1078,7 @@ let TriggerEventDispatcher = class TriggerEventDispatcher extends MWCore__defaul
         if (this.FillterCharacter && !GamePlay__default['default'].IsCharacter(go)) {
             return;
         }
-        Events__default['default'].DispatchLocal(this.TriggerName + "In", { gameObject: go, trigger: this.trigger });
+        Events__default['default'].DispatchLocal(EventsName$1.toLocal_BTrapT, { gameObject: go, trigger: this.trigger });
     }
     OnTriggerOut(go) {
         if (this.FillterCharacter && !GamePlay__default['default'].IsCharacter(go)) {
@@ -1003,7 +1104,7 @@ TriggerEventDispatcher = __decorate([
 ], TriggerEventDispatcher);
 var TriggerEventDispatcher$1 = TriggerEventDispatcher;
 
-var foreign15 = /*#__PURE__*/Object.freeze({
+var foreign17 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     'default': TriggerEventDispatcher$1
 });
@@ -1208,29 +1309,31 @@ Events__default['default'].AddUIRenderListener(render => {
     render(React__namespace.createElement(ToastContainer, null));
 });
 
-var foreign16 = /*#__PURE__*/Object.freeze({
+var foreign18 = /*#__PURE__*/Object.freeze({
     __proto__: null
 });
 
 const MWModuleMap = {
     'JavaScripts/ChangeClothes': foreign0,
     'JavaScripts/CheckPoint': foreign1,
-    'JavaScripts/FSM/Interface/IFSMState': foreign2,
-    'JavaScripts/FSM/States/CalculateState': foreign3,
-    'JavaScripts/FSM/States/FSMManager': foreign4,
-    'JavaScripts/FSM/States/GamingState': foreign5,
-    'JavaScripts/FSM/States/WaitingState': foreign6,
-    'JavaScripts/GameLogic': foreign7,
-    'JavaScripts/GameUI': foreign8,
-    'JavaScripts/MovementDriver': foreign9,
-    'JavaScripts/MushroomTrap': foreign10,
-    'JavaScripts/OpentNext': foreign11,
-    'JavaScripts/ReadytoStart': foreign12,
-    'JavaScripts/Rotator': foreign13,
-    'JavaScripts/StartUI': foreign14,
-    'JavaScripts/TriggerEventD': foreign15,
-    'JavaScripts/UIFloatMessage': foreign16,
-    'JavaScripts/UIUtils': foreign17,
+    'JavaScripts/FSM/Interface/EventsName': foreign2,
+    'JavaScripts/FSM/Interface/IFSMState': foreign3,
+    'JavaScripts/FSM/States/CalculateState': foreign4,
+    'JavaScripts/FSM/States/FSMManager': foreign5,
+    'JavaScripts/FSM/States/GamingState': foreign6,
+    'JavaScripts/FSM/States/WaitingState': foreign7,
+    'JavaScripts/GameLogic': foreign8,
+    'JavaScripts/GameStatus/GameStatus': foreign9,
+    'JavaScripts/GameUI': foreign10,
+    'JavaScripts/MovementDriver': foreign11,
+    'JavaScripts/MushroomTrap': foreign12,
+    'JavaScripts/OpentNext': foreign13,
+    'JavaScripts/ReadytoStart': foreign14,
+    'JavaScripts/Rotator': foreign15,
+    'JavaScripts/StartUI': foreign16,
+    'JavaScripts/TriggerEventD': foreign17,
+    'JavaScripts/UIFloatMessage': foreign18,
+    'JavaScripts/UIUtils': foreign19,
 };
 
 exports.MWModuleMap = MWModuleMap;

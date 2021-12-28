@@ -1,9 +1,9 @@
 ﻿{
-	"MWUIWidgetBase_2147481704":
+	"MWUIWidgetBase_2147479226":
 	{
-		"MWCanvas_2147481702DD1BED4841F332EA2D743A8F81BCBDBA":
+		"MWCanvas_2147479224675C06394F62F47D5F473C8327EA1EF4":
 		{
-			"MWButton_21474817006CF981884E4EE7C2333B4D8E23F3F867":
+			"MWButton_2147479222A7D0580041C275EA5FCB6C84757BF56A":
 			{
 				"坐 标":
 				{
@@ -33,7 +33,7 @@
 					"Right": 0,
 					"Bottom": 0
 				},
-				"名 字": "MWButton_1",
+				"名 字": "Start_Game",
 				"ID": "AB6CFCB542EF3A4947BF9E985ED0A9D1",
 				"可用性": true,
 				"可见性": 0,
@@ -129,7 +129,7 @@
 				"OnClicked":
 				{
 					"事件名称": "OnClicked",
-					"事件绑定": ""
+					"事件绑定": "Construct"
 				},
 				"OnPressed":
 				{
@@ -152,7 +152,7 @@
 					"事件绑定": ""
 				}
 			},
-			"MWButton_2147481698E0C1B12F40B5E1E04ABC76B3680E16BB":
+			"MWButton_21474792202F5F11B648329DBD8325FCB3C92B4389":
 			{
 				"坐 标":
 				{
@@ -182,7 +182,7 @@
 					"Right": 0,
 					"Bottom": 0
 				},
-				"名 字": "MWButton_2",
+				"名 字": "Exit_Game",
 				"ID": "5AC46CD7437E18E004A08EB85584EA31",
 				"可用性": true,
 				"可见性": 0,
@@ -278,7 +278,7 @@
 				"OnClicked":
 				{
 					"事件名称": "OnClicked",
-					"事件绑定": ""
+					"事件绑定": "Construct"
 				},
 				"OnPressed":
 				{
@@ -370,7 +370,7 @@
 		"TS脚本":
 		{
 			"脚本路径": "",
-			"脚本ID": ""
+			"脚本ID": "F5B69E4A45DB38F349A697BE25BC8AEF"
 		}
 	}
 }

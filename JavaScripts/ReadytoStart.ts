@@ -1,13 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2021-12-27 11:01:41
- * @LastEditTime: 2021-12-27 16:47:11
+ * @LastEditTime: 2021-12-28 18:27:01
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \JavaScripts\ReadytoStart.ts
  */
 import * as UE from "ue";
 import * as puerts from "puerts";
+import GameStatus from "./GameStatus/GameStatus";
 
 @MWCore.MWClass
 class ReadytoStart extends MWCore.MWScript {
@@ -56,7 +57,7 @@ class ReadytoStart extends MWCore.MWScript {
         } else {
             this.goTime += dt;
         }
-        if (this._mPlayerFinishGame) {
+        if (this._mPlayerFinishGame && GameStatus.Instance.IsStart) {
             this._moveTimer += dt;
             while (this._moveTimer >= this._moveTime) {
                 this._moveTimer -= this._moveTime;
